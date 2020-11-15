@@ -1,0 +1,7 @@
+# Project Directories
+vendor/
+build/
+
+# IDE
+.idea/
+.run/
