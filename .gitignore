@@ -1,6 +1,7 @@
 # Project Directories
 vendor/
 build/
+tmp/
 
 # IDE
 .idea/
