@@ -71,7 +71,7 @@ A quick example:
 
       # Dump only matching users
       - table: users
-        query: "SELECT * FROM users WHERE {{matching_user_id}}"
+        query: "SELECT * FROM users WHERE {{.matching_user_id}}"
         post_actions:
           - "SELECT pg_catalog.setval('users_id_seq', MAX(id) + 1, true) FROM users"
 
@@ -81,7 +81,7 @@ A quick example:
           SELECT purchases.* FROM purchases, users
           WHERE
             purchases.buyer_id = users.id
-            AND {{matching_user_id}}
+            AND {{.matching_user_id}}
 
 
 Currently, these top-level keys are available:
