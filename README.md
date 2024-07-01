@@ -22,6 +22,7 @@ Usage of pdd:
       --database string          Database name (default "postgres")
       --user string              Database user (default "postgres")
       --pass string              Database password (default "postgres")
+      --enable-ssl               Use TSL/SSL for connection                      
       --dial-timeout duration    Dial timeout for establishing new connections (default 5s)
       --read-timeout duration    Timeout for socket reads. If reached, commands will fail (default 30s)
       --max-retry int            Maximum number of retries before giving up.

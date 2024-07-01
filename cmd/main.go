@@ -60,6 +60,7 @@ func main() {
 	flag.StringVar(&dbc.Database, "database", database.DefaultDatabase, "Database name")
 	flag.StringVar(&dbc.User, "user", database.DefaultUser, "Database user")
 	flag.StringVar(&dbc.Password, "pass", database.DefaultPassword, "Database password")
+	flag.BoolVar(&dbc.EnableSSL, "enable-ssl", false, "Use TSL/SSL for connection")
 	flag.DurationVar(&dbc.DialTimeout, "dial-timeout", database.DefaultDialTimeout, "Dial timeout for establishing new connections")
 	flag.DurationVar(&dbc.ReadTimeout, "read-timeout", database.DefaultReadTimeout, "Timeout for socket reads. If reached, commands will fail")
 	flag.IntVar(&dbc.MaxRetries, "max-retry", database.DefaultMaxRetries, "Maximum number of retries before giving up.")

@@ -2,6 +2,7 @@ package database
 
 import (
 	"context"
+	"crypto/tls"
 	"fmt"
 	"io"
 	"strings"
@@ -31,6 +32,13 @@ type db struct {
 
 // ConnectDB connects to a database using provided options.
 func ConnectDB(logger log.Logger, cfg *Config) (DB, error) {
+	var tlsConfig tls.Config
+
+	if cfg.EnableSSL {
+		serverName := strings.Split(cfg.Addr, ":")[0]
+		tlsConfig = tls.Config{ServerName: serverName}
+	}
+
 	pgdb := pg.Connect(
 		&pg.Options{
 			Addr:        cfg.Addr,
@@ -40,6 +48,7 @@ func ConnectDB(logger log.Logger, cfg *Config) (DB, error) {
 			MaxRetries:  cfg.MaxRetries,
 			DialTimeout: cfg.DialTimeout,
 			ReadTimeout: cfg.ReadTimeout,
+			TLSConfig:   &tlsConfig,
 		},
 	)
 
