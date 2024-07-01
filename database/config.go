@@ -19,6 +19,7 @@ type Config struct {
 	Database    string
 	User        string
 	Password    string
+	EnableSSL   bool
 	MaxRetries  int
 	DialTimeout time.Duration
 	ReadTimeout time.Duration
